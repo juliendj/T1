@@ -2,8 +2,12 @@
 
 use App\Http\Controllers\Admin\DepartementController;
 use App\Http\Controllers\Admin\EquipeController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\InformationController;
 use App\Http\Controllers\Admin\PersonelController;
+use App\Http\Controllers\Admin\InfoprodController;
+use App\Http\Controllers\Admin\SearchController;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,3 +33,14 @@ Route::prefix('Departement')->name('departement.')->group(function () {
 Route::prefix('Information')->name('information.')->group(function () {
     Route::resource('information', InformationController::class);
 });
+
+Route::prefix('Infoprod')->name('infoprod.')->group(function () {
+    Route::resource('infoprod', InfoprodController::class);
+});
+/* Route::prefix('Search')->name('search.')->group(function () {
+    Route::resource('search', SearchController::class);
+}); */
+
+Route::get('/Home', [HomeController::class, 'index'])->name('home_index');
+Route::any('/Search', [SearchController::class, 'index'])->name('search_index');
+//Route::post('/Search', [SearchController::class, 'index'])->name('search_indexx');

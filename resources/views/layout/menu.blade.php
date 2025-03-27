@@ -84,11 +84,24 @@
                                 >Listes des Informations</a
                             >
                         </li>
+
+                        <li class="sub-nav-item">
+                            <a class="sub-nav-link" href="{{route('infoprod.infoprod.index')}}"
+                                >Listes des Info prod</a
+                            >
+                        </li>
+
+                        <li class="sub-nav-item">
+                            <a class="sub-nav-link" href="{{route('search_index')}}"
+                                >Accueille</a
+                            >
+                        </li>
+                        
                     </ul>
                 </div>
             </li>
 
-            <li class="menu-title">Apps</li>
+            <li class="menu-title">Gestion T1</li>
 
             <li class="nav-item">
                 <a
@@ -104,15 +117,15 @@
                             icon="iconamoon:shopping-bag-duotone"
                         ></iconify-icon>
                     </span>
-                    <span class="nav-text"> Ecommerce </span>
+                    <span class="nav-text"> Equipe</span>
                 </a>
                 <div class="collapse" id="sidebarEcommerce">
                     <ul class="nav sub-navbar-nav">
                         <li class="sub-nav-item">
                             <a
                                 class="sub-nav-link"
-                                href="apps-ecommerce-product-list.html"
-                                >Products</a
+                                href="{{ route('search_index') }}"
+                                >Search</a
                             >
                         </li>
                         <li class="sub-nav-item">

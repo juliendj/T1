@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PersonelFormRequest extends FormRequest
+class SearchFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,18 +21,9 @@ class PersonelFormRequest extends FormRequest
      */
     public function rules(): array
     {
-      // dd(request()->all());
+       // dd(request());
         return [
-            //
-
-            'nom'=>['required'],
-            'prenom'=>['required'],
-            'poste'=>['required'],
-            'code'=>['required'],
-             'lib'=>['required'],
-           'active'=>['required'],
-             'departement_id'=>['required'] ,
-             'equipe_id'=>['required'] 
+            'equipe'=>['nullable'],
         ];
     }
 }

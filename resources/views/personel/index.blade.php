@@ -23,7 +23,7 @@
                    <tr>
                     <td>{{ $personels->nom }}</td>
                     <td>{{ $personels->prenom }}</td>
-                    <td>{{ $personels->poste }}</td>
+                    <td>{{ $personels->equipe->name}}</td>
                     <td>{{ $personels->code }}</td>
                     <td>{{ $personels->lib }}</td>
 

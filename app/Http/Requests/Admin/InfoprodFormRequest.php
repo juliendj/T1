@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PersonelFormRequest extends FormRequest
+class InfoprodFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,19 +20,11 @@ class PersonelFormRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-    {
-      // dd(request()->all());
+    {//dd(request());
         return [
-            //
-
-            'nom'=>['required'],
-            'prenom'=>['required'],
-            'poste'=>['required'],
-            'code'=>['required'],
-             'lib'=>['required'],
-           'active'=>['required'],
-             'departement_id'=>['required'] ,
-             'equipe_id'=>['required'] 
+            'lib'=>['required'],
+            'active'=>['boolean'],
+            'departement_id'=>['required']
         ];
     }
 }

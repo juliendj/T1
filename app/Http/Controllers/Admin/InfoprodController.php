@@ -3,18 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\EquipeFormRequest;
-use App\Models\Equipe;
+use App\Http\Requests\Admin\InfoprodFormRequest;
+use App\Models\Departement;
+use App\Models\Infoprod;
 use Illuminate\Http\Request;
 
-class EquipeController extends Controller
+class InfoprodController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view("equipe.index",['equipe'=>Equipe::all()]);
+          return view('infoprod.index',['infoprod'=>Infoprod::all()]);
+
     }
 
     /**
@@ -22,19 +24,17 @@ class EquipeController extends Controller
      */
     public function create()
     {
-        $equipe=new Equipe();
-        return view('equipe.forms',['equipe'=> $equipe]);
+        $infoprod=new Infoprod();
+        return view('infoprod.forms',['infoprod'=>$infoprod,
+    'departement'=>Departement::all()]);
     }
 
-    /**we
+    /**
      * Store a newly created resource in storage.
      */
-    public function store(EquipeFormRequest $request)
-    {
-       // dd('equipe');
-        $equipe=Equipe::create($request->validated());
-
-
+    public function store(InfoprodFormRequest $request)
+    {//dd($request->validated());
+        $infoprod=Infoprod::create($request->validated());
     }
 
     /**
@@ -48,23 +48,18 @@ class EquipeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Equipe $equipe)
+    public function edit(Infoprod $infoprod)
     {
-        return view('equipe.forms',
-        [
-            'equipe'=>$equipe,
-
-        ]);
+        return view('infoprod.forms',['infoprod'=>$infoprod,
+    'departement'=>Departement::all()]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(EquipeFormRequest $request,Equipe $equipe)
+    public function update(Infoprod $infoprod,InfoprodFormRequest $request)
     {
-        $equipe->update($request->validated());
-        return redirect()->route('equipe.equipe.index')->with('success','votre equipe a bien été modifié');
-
+        $infoprod->update($request->validated());
     }
 
     /**

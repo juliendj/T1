@@ -15,4 +15,8 @@ class Equipe extends Model
         'nombre'
 
     ];
+    public function personels(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Personel::class);
+    }
 }

@@ -6,31 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Personel extends Model
+class Infoprod extends Model
 {
-
     use HasFactory;
     protected $fillable = [
 
-        'nom',
-        'prenom',
-        'code',
-        'poste',
         'lib',
         'active',
-        'departement_id',
-        'equipe_id'
+        'departement_id'
 
     ];
-    public function equipe(): BelongsTo
-    {
-        return $this->belongsTo(Equipe::class);
-    }
 
     public function departement(): BelongsTo
     {
         return $this->belongsTo(Departement::class);
     }
-
-   
 }

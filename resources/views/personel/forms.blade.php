@@ -32,6 +32,17 @@
     <option value="Manutentionaire">Mennutentionaire de ligne</option>
 </select>
 
+<select class="form-control"  data-choices name="departement_id" id="" >
+  @foreach ($departement as $departements )
+<option value="{{  $departements->id}}">{{ $departements->libeler }}</option>   
+  @endforeach 
+</select>
+
+<select class="form-control"  data-choices name="equipe_id" id="" >
+    @foreach ($equipe as $equipes )
+  <option value="{{  $equipes->id}}">{{ $equipes->name }}</option>   
+    @endforeach 
+  </select>
 
 
 <div class="row">

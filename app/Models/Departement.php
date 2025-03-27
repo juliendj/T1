@@ -17,5 +17,13 @@ class Departement extends Model
         'active'
 
     ];
+    public function personels(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Personel::class);
+    }
 
+    public function infoprods(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Infoprod::class);
+    }
 }
