@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="card">
+    @include('shared.flsah')
     <a href="{{route('equipe.equipe.create')}}" class="btn btn-primary">Ajouter un equipe</a>
     <div class="card-body">
         <div class="table-responsive">

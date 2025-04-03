@@ -1,186 +1,142 @@
 @extends('layout.base')
 
 @section('content')
-
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <div
-                    class="d-flex flex-wrap justify-content-between align-items-center gap-2"
-                >
-                    <div>
-                        <form
-                            class="d-flex flex-wrap align-items-center gap-2"
-                            action="{{ route(  'search_index',['equip'=>$equip]) }}" method="POST"
-                        >
-                        @csrf
-                            <label
-                                for="inputPassword2"
-                                class="visually-hidden"
-                                >Search</label
-                            >
-                            <div class="search-bar me-3">
-                                <span
-                                    ><i
-                                        class="bx bx-search-alt"
-                                    ></i
-                                ></span>
-                                <input
-                                    type="search"
-                                    class="form-control"
-                                    id="search"
-                                    placeholder="Search ..."
-                                />
-                            </div>
-
-                            <button type="submit" class="btn btn-secondary btn-sm align-content-end">
-                                filtrer par equipe
-                            </button>
-                            <div class="me-sm-3">
-                                <select
-                                    class="form-select my-1 my-md-0"
-                                    id="status-select" name="equipe"
-                                >
-                                    @foreach ( $equip as $equip )
-                                    @if ($test==$equip->id)
-                                    <option value="{{ $equip->id  }}" selected >
-                                        {{ $equip->name }}
-                                    </option>
-                                    @else
-                                    <option value="{{ $equip->id  }}" >
-                                        {{ $equip->name }}
-                                    </option>
-                                    @endif
-
-
-                                    
-                                    
-                                    @endforeach
-                                   
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-                    <div>
-                        <div
-                            class="d-flex flex-wrap gap-2 justify-content-md-end align-items-center"
-                        >
-                            <ul
-                                class="nav nav-pills bg-transparent gap-1 p-0"
-                            >
-                                <li class="nav-item">
-                                    <a
-                                        href="#team-grid"
-                                        class="nav-link"
-                                        data-bs-toggle="tab"
-                                        aria-expanded="false"
-                                        data-bs-toggle="tooltip"
-                                        data-bs-placement="top"
-                                        title="Grid"
-                                    >
-                                        <i
-                                            class="bx bx-grid-alt"
-                                        ></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a
-                                        href="#team-list"
-                                        class="nav-link active"
-                                        data-bs-toggle="tab"
-                                        aria-expanded="false"
-                                        data-bs-toggle="tooltip"
-                                        data-bs-placement="top"
-                                        title="List"
-                                    >
-                                        <i
-                                            class="bx bx-list-ul"
-                                        ></i>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="dropdown">
-                                <a
-                                    href="javascript:void(0);"
-                                    class="dropdown-toggle btn btn-soft-success arrow-none"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    <i
-                                        class="bx bx-sort me-1"
-                                    ></i
-                                    >Filter
-                                </a>
-                                <div
-                                    class="dropdown-menu dropdown-menu-end"
-                                >
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="dropdown-item"
-                                        >By Date</a
-                                    >
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="dropdown-item"
-                                        >By Order ID</a
-                                    >
-                                    <a
-                                        href="javascript:void(0);"
-                                        class="dropdown-item"
-                                        >By City</a
-                                    >
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                        <div>
+                            <form class="d-flex flex-wrap align-items-center gap-2"
+                                action="{{ route('search_index', ['equip' => $equip]) }}" method="POST">
+                                @csrf
+                                <label for="inputPassword2" class="visually-hidden">Search</label>
+                                <div class="search-bar me-3">
+                                    <span><i class="bx bx-search-alt"></i></span>
+                                    <input type="search" class="form-control" id="search" placeholder="Search ..." />
                                 </div>
-                            </div>
 
-                            <a
-                                href="#!"
-                                class="btn btn-danger"
-                            >
-                                <i
-                                    class="bi bi-plus-circle me-1"
-                                ></i
-                                >Add Customer
-                            </a>
+                                <button type="submit" class="btn btn-secondary btn-sm align-content-end">
+                                    filtrer par equipe
+                                </button>
+                                <div class="me-sm-3">
+                                    <select class="form-select my-1 my-md-0" id="status-select" name="equipe">
+                                        @foreach ($equip as $equip)
+                                            @if ($test == $equip->id)
+                                                <option value="{{ $equip->id }}"style="background-color:powderblue;" selected>
+                                                    {{ $equip->name }} 
+                                                </option>
+                                            @else
+                                                <option value="{{ $equip->id }}">
+                                                    {{ $equip->name }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+
+                                    </select>
+                                </div>
+                            </form>
                         </div>
+                        <div>
+                            <div class="d-flex flex-wrap gap-2 justify-content-md-end align-items-center">
+                                <ul class="nav nav-pills bg-transparent gap-1 p-0">
+                                    <li class="nav-item">
+                                        <a href="#team-grid" class="nav-link" data-bs-toggle="tab" aria-expanded="false"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Grid">
+                                            <i class="bx bx-grid-alt"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#team-list" class="nav-link active" data-bs-toggle="tab"
+                                            aria-expanded="false" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="List">
+                                            <i class="bx bx-list-ul"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle btn btn-soft-success arrow-none"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bx bx-sort me-1"></i>Filter
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a href="javascript:void(0);" class="dropdown-item">By Date</a>
+                                        <a href="javascript:void(0);" class="dropdown-item">By Order ID</a>
+                                        <a href="javascript:void(0);" class="dropdown-item">By City</a>
+                                    </div>
+                                </div>
+
+                                <a href="#!" class="btn btn-danger">
+                                    <i class="bi bi-plus-circle me-1"></i>Add Customer
+                                </a>
+                            </div>
+                        </div>
+                        <!-- end col-->
                     </div>
-                    <!-- end col-->
+                    <!-- end row -->
                 </div>
-                <!-- end row -->
             </div>
+            <!-- end card -->
         </div>
-        <!-- end card -->
+        <!-- end col-->
     </div>
-    <!-- end col-->
-</div>
 
-<div class="row">
-@foreach ($departement as $departements )
+    <div class="row">
+        @foreach ($departement as $departements)
+            <div class="col col-3">
+                <div class="card" style="height: 15rem;">
+                    <div class="card-body">
+                        <div class=" align-items-center justify-content-between">
+                            <div>
+                                <h3 class="mb-0 fw-bold mb-2">
+                                    {{ $departements->libeler }}
+                                </h3>
+                                <span class="badge fs-12 badge-soft-success"><i class="ti ti-arrow-badge-up"></i>
+                                    {{-- ||
+                                        $personels->poste_id==3?"text-muted"||
+                                        $personels->poste_id==4?"text-info"||
+                                        $personels->poste_id==5?"text-primary"||
+                                        $personels->poste_id==6?"text-warning"||
+                                        $personels->poste_id==7?"text-danger"  --}}
+                                    {{ $departements->nombre }} persones</span>
+                                @foreach ($departements->personels as $personels)
+                                    @if ($personels->equipe_id == $test)
+                                        <h5 @if($personels->poste_id==1){
+                                           class= "text-success"}
+                                           @endif
+                                           @if($personels->poste_id==3){
+                                            class= "text-muted"}
+                                            @endif
+                                            @if($personels->poste_id==4){
+                                                class= "text-info "}
+                                                @endif
+                                                @if($personels->poste_id==5){
+                                                    class= "text-primary"}
+                                                    @endif
+                                                    @if($personels->poste_id==6){
+                                                        class= "text-warning"}
+                                                        @endif
+                                                        @if($personels->poste_id==7){
+                                                            class= "text-danger"}
+                                                            
+                                                
 
-    <div class="col col-3">
-        <div class="card" style="height: 15rem;">
-            <div class="card-body">
-                <div
-                    class=" align-items-center justify-content-between"
-                >
-                    <div>
-                        <h3 class="mb-0 fw-bold mb-2">
-                            {{ $departements->libeler }}
-                        </h3>
-                        <span
-                        class="badge fs-12 badge-soft-success"
-                        ><i
-                            class="ti ti-arrow-badge-up"
-                        ></i>
-                       {{ $departements->nombre }} persones</span
-                    >
-                        @foreach ( $departements->personels as $personels )
-                       <h5 class="text-muted" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        {{ $personels->nom}} {{ $personels->prenom}} 
-                    </h5>
-                    @endforeach 
-                   {{--  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+                                            else{
+                                                class="text-scondary"
+                                            }
+                                        @endif
+                                        
+                                        {{-- {{ $personels->poste_id==1?"text-success":"text-scondary"}}  --}} data -bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                            {{ $personels->nom }} {{ $personels->prenom }}
+                                        </h5>
+                                        @else
+                                        
+                                        
+                                    @endif
+                                @endforeach
+                                {{--  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
@@ -198,7 +154,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ( $departements->infoprods as $infoprods )
+                                            @foreach ($departements->infoprods as $infoprods)
                         
                                            <tr>
                                             <td>{{ $infoprods->lib }}</td>
@@ -226,12 +182,12 @@
                           </div>
                         </div>
                       </div> --}}
-                          
-                      
-                       
-                    </div>
-                    <div>
-                       {{--  <div
+
+
+
+                            </div>
+                            <div>
+                                {{--  <div
                             class="avatar-lg d-inline-block me-1"
                         >
                             <span
@@ -243,21 +199,17 @@
                                 ></iconify-icon>
                             </span>
                         </div> --}}
+                            </div>
+                        </div>
                     </div>
+                    <!-- end card-body -->
                 </div>
+                <!-- end card -->
             </div>
-            <!-- end card-body -->
-        </div>
-        <!-- end card -->
+        @endforeach
     </div>
+    <!-- Button trigger modal -->
 
 
-    
-@endforeach
-</div>
-<!-- Button trigger modal -->
-
-  
-  <!-- Modal -->
-  
+    <!-- Modal -->
 @endsection

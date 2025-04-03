@@ -1,7 +1,9 @@
 @extends('layout.base')
+@section('title', 'liste du personel')
 
 @section('content')
 <div class="card">
+    @include('shared.flsah')
     <a href="{{route('personel.personel.create')}}" class="btn btn-primary">Ajouter un personel</a>
     <div class="card-body">
         <div class="table-responsive">
@@ -12,6 +14,8 @@
                         <th scope="col">Prenom</th>
                         <th scope="col">Poste</th>
                         <th scope="col">Code</th>
+                        <th scope="col">equipe</th>
+                        <th scope="col">departement</th>
                         <th scope="col">Remarque</th>
 
                         <th scope="col">Action</th>
@@ -23,8 +27,10 @@
                    <tr>
                     <td>{{ $personels->nom }}</td>
                     <td>{{ $personels->prenom }}</td>
-                    <td>{{ $personels->equipe->name}}</td>
+                    <td>{{ $personels->poste->nom}}</td>
                     <td>{{ $personels->code }}</td>
+                    <td>{{ $personels->equipe->name }}</td>
+                    <td>{{ $personels->departement->libeler }}</td>
                     <td>{{ $personels->lib }}</td>
 
 
@@ -47,4 +53,5 @@
     </div>
 
 </div>
+{{ $personel->links() }}
 @endsection

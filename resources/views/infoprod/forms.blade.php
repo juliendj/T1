@@ -19,8 +19,8 @@
 <select class="form-control"  data-choices name="departement_id" id="" >
    
 
-@foreach ($departement as $departements)
-<option value='{{ $departements->id }}'>{{ $departements->libeler }}</option>
+@foreach ($departement as $departement)
+<option value='{{ $departement->id }}'>{{ $departement->libeler }}</option>
 @endforeach
     
 </select>

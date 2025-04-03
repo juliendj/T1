@@ -7,7 +7,9 @@ use App\Http\Requests\Admin\PersonelFormRequest;
 use App\Models\Departement;
 use App\Models\Equipe;
 use App\Models\Personel;
+use App\Models\Poste;
 use Illuminate\Http\Request;
+use PHPUnit\TextUI\Configuration\Php;
 
 class PersonelController extends Controller
 {
@@ -16,8 +18,8 @@ class PersonelController extends Controller
      */
     public function index()
     {//dd(Equipe::all());
-        return view("personel.index",['personel'=>Personel::all(),
-    'departement'=>Departement::all(),'equipe'=>Equipe::all()
+        return view("personel.index",['personel'=>Personel::orderBy('created_at','desc')->paginate(5),
+   // 'departement'=>Departement::all(),'equipe'=>Equipe::all()
 ],
 );
     }
@@ -28,10 +30,16 @@ class PersonelController extends Controller
     public function create()
     {
         $personel=new Personel();
-        
-      //  dd(Departement::all());
+        $pers=Personel::all();
+
+       //dd($pers);
         return view('personel.forms',['personel'=> $personel,
-    'departement'=>Departement::all(),'equipe'=>Equipe::all()]);
+        'poste'=>Poste::all(),
+
+    'departement'=>Departement::all(),
+    'equipe'=>Equipe::all()
+
+   ]);
     }
 
     /**
@@ -42,6 +50,7 @@ class PersonelController extends Controller
        // dd($request->all());
         $personel=Personel::create($request->validated());
         //$equipe=Equipe::create($request->validated());
+        return redirect()->route('personel.personel.index')->with('success','votre personel a bien été ajouté');
     }
 
     /**
@@ -56,12 +65,16 @@ class PersonelController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Personel $personel)
+
     {
+
         return view('personel.forms',
         [
             'departement'=>Departement::all(),
             'equipe'=>Equipe::all(),
+            'poste'=>Poste::all(),
             'personel'=>$personel,
+
 
         ]);
     }
@@ -72,6 +85,7 @@ class PersonelController extends Controller
     public function update(PersonelFormRequest $request,Personel $personel)
     {
         $personel->update($request->validated());
+        return redirect()->route('personel.personel.index')->with('success','votre personel a bien été modifier');
     }
 
     /**

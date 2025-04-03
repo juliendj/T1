@@ -33,6 +33,7 @@ class EquipeController extends Controller
     {
        // dd('equipe');
         $equipe=Equipe::create($request->validated());
+        return redirect()->route('equipe.equipe.index')->with('success','votre equipe a bien été ajouté');
 
 
     }

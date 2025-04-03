@@ -16,11 +16,12 @@ return new class extends Migration
             $table->timestamps();
             $table->string('nom');
             $table->string('prenom');
-            $table->string('poste');
+           
             $table->string('code');
             $table->string('lib');
             $table->string('active');
             $table->foreignId('departement_id');
+            $table->foreignId('poste_id');
             $table->foreignId('equipe_id');
 
         });

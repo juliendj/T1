@@ -21,9 +21,9 @@ class SearchFormRequest extends FormRequest
      */
     public function rules(): array
     {
-       // dd(request());
+        // dd(request());
         return [
-            'equipe'=>['nullable'],
+            'equipe' => ['nullable'],
         ];
     }
 }

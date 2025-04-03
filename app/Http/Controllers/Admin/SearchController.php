@@ -25,8 +25,10 @@ class SearchController extends Controller
           
           if($request->validated('equipe')){
             $test=$request->validated('equipe');
-           
-            $departement=  $departements->where('personels.equipe_id',$request->validated('equipe'))->get();
+            $departement = $departements->get();
+            /* $departement = $departements->whereHas('personels', function ($query) use ($test) {
+                $query->where('equipe_id', $test);
+        })->get(); */
          // dd($personel);
         }
           else{

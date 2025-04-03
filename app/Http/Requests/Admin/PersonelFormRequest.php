@@ -27,7 +27,7 @@ class PersonelFormRequest extends FormRequest
 
             'nom'=>['required'],
             'prenom'=>['required'],
-            'poste'=>['required'],
+            'poste_id'=>['required'],
             'code'=>['required'],
              'lib'=>['required'],
            'active'=>['required'],

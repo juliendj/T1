@@ -1,6 +1,6 @@
 <div class="main-nav">
     <!-- Sidebar Logo -->
-    <div class="logo-box">
+    {{-- <div class="logo-box">
         <a href="index.html" class="logo-dark">
             <img
                 src="{{ asset('assets/images/logo-sm.png') }}"
@@ -26,10 +26,10 @@
                 alt="logo light"
             />
         </a>
-    </div>
+    </div> --}}
 
     <!-- Menu Toggle Button (sm-hover) -->
-    <button
+    {{-- <button
         type="button"
         class="button-sm-hover"
         aria-label="Show Full Sidebar"
@@ -38,7 +38,7 @@
             icon="iconamoon:arrow-left-4-square-duotone"
             class="button-sm-hover-icon"
         ></iconify-icon>
-    </button>
+    </button> --}}
 
     <div class="scrollbar" data-simplebar>
         <ul class="navbar-nav" id="navbar-nav">
@@ -92,11 +92,11 @@
                         </li>
 
                         <li class="sub-nav-item">
-                            <a class="sub-nav-link" href="{{route('search_index')}}"
+                            <a class="sub-nav-link" href="{{route('home_index')}}"
                                 >Accueille</a
                             >
                         </li>
-                        
+
                     </ul>
                 </div>
             </li>

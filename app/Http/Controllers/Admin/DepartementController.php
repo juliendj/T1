@@ -34,6 +34,7 @@ class DepartementController extends Controller
 
        // dd($request->all());
         $departement=Departement::create($request->validated());
+        return redirect()->route('departement.departement.index')->with('success','votre departement a bien été ajouté');
 
     }
 
@@ -59,6 +60,7 @@ class DepartementController extends Controller
     public function update(DepartementFormRequest $request,Departement $departement)
     {
         $departement->update($request->validated());
+        return redirect()->route('departement.departement.index')->with('success','votre Departement a bien été modifier');
     }
 
     /**

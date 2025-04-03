@@ -31,7 +31,7 @@
 
         <div class="page-content">
             <div class="card-body">
-
+                {{-- @yield('title') --}}
 
 
 @yield('content')

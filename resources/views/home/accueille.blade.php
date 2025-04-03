@@ -175,7 +175,7 @@
                        {{ $departements->nombre }} persones</span
                     >
                         @foreach ( $departements->infoprods as $infoprods )
-                       <h5 class="text-muted" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                       <h5 class="text-muted" style="danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         {{ $infoprods->lib }}
                     </h5>
                     @endforeach

@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="card">
+    @include('shared.flsah')
     <a href="{{route('departement.departement.create')}}" class="btn btn-primary">Ajouter un departement</a>
     <div class="card-body">
         <div class="table-responsive">

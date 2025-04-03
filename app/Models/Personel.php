@@ -19,6 +19,7 @@ class Personel extends Model
         'lib',
         'active',
         'departement_id',
+        'poste_id',
         'equipe_id'
 
     ];
@@ -30,6 +31,10 @@ class Personel extends Model
     public function departement(): BelongsTo
     {
         return $this->belongsTo(Departement::class);
+    }
+    public function poste(): BelongsTo
+    {
+        return $this->belongsTo(Poste::class);
     }
 
    

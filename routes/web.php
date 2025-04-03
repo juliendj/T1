@@ -10,9 +10,9 @@ use App\Http\Controllers\Admin\SearchController;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('equipe.test');
-});
+}); */
 
 /* Route::get('/index', function () {
     return view('equipe.index');
@@ -41,6 +41,6 @@ Route::prefix('Infoprod')->name('infoprod.')->group(function () {
     Route::resource('search', SearchController::class);
 }); */
 
-Route::get('/Home', [HomeController::class, 'index'])->name('home_index');
+Route::get('/', [HomeController::class, 'index'])->name('home_index');
 Route::any('/Search', [SearchController::class, 'index'])->name('search_index');
 //Route::post('/Search', [SearchController::class, 'index'])->name('search_indexx');
